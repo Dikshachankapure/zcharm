@@ -1,0 +1,52 @@
+<mvc:View controllerName="futuregroup.zcharmapp.controller.Detail" xmlns="sap.m" xmlns:semantic="sap.f.semantic" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.ui.layout.form">
+	<semantic:SemanticPage id="detailPage" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" headerPinnable="true"
+		showFooter="true">
+		<semantic:titleHeading>
+			<Title text="{ObjectId}"/>
+		</semantic:titleHeading>
+		<semantic:headerContent>
+			<ObjectAttribute title="Status : {Concatstatuser}"/>
+		</semantic:headerContent>
+		<semantic:content>
+			<f:SimpleForm id="SimpleFormDisplay354" editable="false" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+				labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+				singleContainerFullSize="false">
+				<f:content>
+					<Label text="Request No."/>
+					<Text id="txtObjectId" text="{ObjectId}"/>
+					<Label text="Description"/>
+					<Text text="{Description}"/>
+					<Label text="Status"/>
+					<Text text="{Concatstatuser}"/>
+					<Label text="Priority"/>
+					<Text text="{Priority}"/>
+					<Label text="Priority Text"/>
+					<Text text="{PriorityTxt}"/>
+					<Label text="Valid From"/>
+					<Text
+						text="{ 
+						path: 'ValidFrom', 
+						type: 'sap.ui.model.type.Date', 
+						formatOptions: {pattern: 'dd/MM/yyyy' } }"/>
+					<Label text="Valid To"/>
+					<Text
+						text="{ 
+						path: 'ValidTo', 
+						type: 'sap.ui.model.type.Date', 
+						formatOptions: {pattern: 'dd/MM/yyyy' } }"/>
+					<Label text="Created By"/>
+					<Text text="{CreatedBy}"/>
+				</f:content>
+			</f:SimpleForm>
+		</semantic:content>
+		<!--Semantic ShareMenu Buttons-->
+		<semantic:closeAction>
+			<semantic:CloseAction id="closeColumn" press=".onCloseDetailPress"/>
+		</semantic:closeAction>
+		<semantic:footerCustomActions>
+			<Button id="btnAccept" text="Approve" icon="sap-icon://accept" press="onApprove" type="Accept" tooltip="Approve"/>
+			<Button id="btnReject" text="Reject" icon="sap-icon://decline" press="onReject" type="Reject" tooltip="Reject"/>
+		</semantic:footerCustomActions>
+	</semantic:SemanticPage>
+</mvc:View>
